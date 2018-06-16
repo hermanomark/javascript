@@ -1,0 +1,98 @@
+<!-- JavaScript comments can be used to explain JavaScript code, and to make it more readable.
+
+JavaScript comments can also be used to prevent execution, when testing alternative code.
+ -->
+
+ <!-- Single Line Comments
+
+Single line comments start with //.
+
+Any text between // and the end of the line will be ignored by JavaScript (will not be executed).
+
+This example uses a single-line comment before each code line: -->
+
+<h1 id="myH"></h1>
+<p id="myP"></p>
+
+<script>
+// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+// Change paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";
+</script>
+
+<p><strong>Note:</strong> The comments are not executed.</p>
+
+<!-- This example uses a single line comment at the end of each line to explain the code: -->
+
+<p id="demo"></p>
+
+<script>
+var x = 5;      // Declare x, give it the value of 5
+var y = x + 2;  // Declare y, give it the value of x + 2 
+
+document.getElementById("demo").innerHTML = y; // Write y to demo
+</script>
+
+<p><strong>Note:</strong> The comments are not executed.</p>
+
+<!-- Multi-line Comments
+
+Multi-line comments start with /* and end with */.
+
+Any text between /* and */ will be ignored by JavaScript.
+
+This example uses a multi-line comment (a comment block) to explain the code: -->
+
+<h1 id="myH1"></h1>
+<p id="myP1"></p>
+
+<script>
+/*
+The code below will change
+the heading with id = "myH"
+and the paragraph with id = "myp"
+in my web page:
+*/
+document.getElementById("myH1").innerHTML = "My First Page";
+document.getElementById("myP1").innerHTML = "My first paragraph.";
+</script>
+
+<p><strong>Note:</strong> The comment block is not executed.</p>
+
+<!-- It is most common to use single line comments.
+Block comments are often used for formal documentation. -->
+
+<!-- Using Comments to Prevent Execution
+
+Using comments to prevent execution of code is suitable for code testing.
+
+Adding // in front of a code line changes the code lines from an executable line to a comment.
+
+This example uses // to prevent execution of one of the code lines: -->
+
+<h1 id="myH2"></h1>
+
+<p id="myP2"></p>
+
+<script>
+//document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP2").innerHTML = "My first paragraph.";
+</script>
+
+<p><strong>Note:</strong> The comment is not executed.</p>
+
+<!-- This example uses a comment block to prevent execution of multiple lines: -->
+
+<h1 id="myH3"></h1>
+
+<p id="myP3"></p>
+
+<script>
+/*
+document.getElementById("myH3").innerHTML = "Welcome to my Homepage";
+document.getElementById("myP3").innerHTML = "This is my first paragraph.";
+*/
+</script>
+
+<p><strong>Note:</strong> The comment-block is not executed.</p>

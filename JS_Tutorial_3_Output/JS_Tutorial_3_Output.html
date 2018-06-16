@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<!-- JavaScript Output -->
+
+<!-- JavaScript Display Possibilities
+
+JavaScript can "display" data in different ways:
+
+    Writing into an HTML element, using innerHTML.
+    Writing into the HTML output using document.write().
+    Writing into an alert box, using window.alert().
+    Writing into the browser console, using console.log().
+
+Using innerHTML
+
+To access an HTML element, JavaScript can use the document.getElementById(id) method.
+
+The id attribute defines the HTML element. The innerHTML property defines the HTML content: -->
+
+
+<h2>My First Web Page</h2>
+<p>My First Paragraph.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 5 + 6;
+</script>
+
+<!-- Changing the innerHTML property of an HTML element is a common way to display data in HTML. -->
+
+<!-- Using document.write() -->
+
+<!-- For testing purposes, it is convenient to use document.write(): -->
+
+<script>
+document.write((5 + 6 + 9) * (2)); // follow PEMDAS
+</script> 
+
+<!-- Using document.write() after an HTML document is fully loaded, will delete all existing HTML: -->
+<br><br><br>
+<button type="button" onclick="document.write(5 + 6)">This is document.write(5+6) - Try it</button>
+<!-- The document.write() method should only be used for testing. -->
+
+
+<!-- Using window.alert() -->
+
+<!-- You can use an alert box to display data: -->
+
+<script>
+window.alert(5 + 6);
+</script>
+
+<!-- Using console.log() -->
+
+<!-- For debugging purposes, you can use the console.log() method to display data. -->
+
+<h2>Activate debugging with F12</h2>
+
+<p>Select "Console" in the debugger menu. Then click Run again.</p>
+
+<script>
+console.log(5 + 6);
+console.log("Mark Hermano");
+
+let middleName = "Gacutan";
+
+console.log(middleName);
+
+</script>
+
+</body>
+</html>
+

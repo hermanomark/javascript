@@ -1,0 +1,222 @@
+<!-- 1. Write a JavaScript program to display the current day and time in the following format.
+
+    ```
+    Today is : Friday. 
+    Current time is : 4 PM : 50 : 22
+    ``` -->
+<p>1.) </p>
+<p id="demo"></p>
+<p id="demo1"></p>
+
+<script>
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var today =  days[d.getDay()];
+    var hours
+        if (d.getHours() > 12) {
+            hours = d.getHours() - 12;
+        }
+        else {
+            hours = d.getHours();
+        };
+
+    var ampm;
+        if (d.getHours() <= 12) {
+            ampm = "AM "
+        }
+        else {
+            ampm = "PM "
+        };
+
+    document.getElementById("demo").innerHTML = "Today is " + today;
+    document.getElementById("demo1").innerHTML = "Current time is: " +  hours + " " + ampm + ": " + d.getMinutes() + ": " + d.getSeconds();
+  
+</script>
+    
+<!-- 2. Write a JavaScript program to print the contents of the current window.  -->
+<p>2.) </p>
+<p>Click the button to print the current page.</p>
+<button onclick="print_current_page()">Print this page</button>
+
+<script>  
+    function print_current_page()
+    {
+    window.print();
+    }
+</script>
+
+<!-- 3. Write a JavaScript program to get the current date. 
+
+    ```
+    Expected Output : 
+    mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy 
+    ``` -->
+<p>3.) </p>
+
+<p id="demo2"></p>
+<script>
+    let a =  new Date();
+    let mm = a.getMonth();
+    let dd = a.getDate();
+    let yyyy = a.getFullYear();
+
+   document.getElementById("demo2").innerHTML = mm + "-" + dd + "-" + yyyy;
+</script>
+
+<!-- 4. Write a JavaScript program to find the area of a triangle where lengths of the three of its sides are 5, 6, 7. -->
+<p>4.) </p>
+<p id="demo3"></p>
+
+<script>
+    let lengthOne = 5;
+    let lengthTwo = 6;
+    let lengthThree = 7;
+    let perimeter = lengthOne + lengthTwo + lengthThree;
+    let Sp = perimeter / 2;
+
+    let area = Math.sqrt(Sp * (Sp - lengthOne) * (Sp - lengthTwo) * (Sp - lengthThree));
+    document.getElementById("demo3").innerHTML = area;
+</script>
+
+<!-- 5. Write a JavaScript program to rotate the string 'Lorem ipsum dimsum' in right direction by periodically removing one letter from the end of the string and attaching it to the front.   -->
+
+<p>5.) </p>
+<button onclick="rotate()">Rotate me!</button>
+<p id="demo4">Lorem ipsum dimsum</p>
+
+<script>
+    let word = "Lorem ipsum dimsum";
+    let newArray = word.split("");
+
+    function rotate() {
+        let letter = newArray.pop();
+        let addLetter = newArray.unshift(letter);
+        let join = newArray.join('');
+
+        document.getElementById("demo4").innerHTML = join;
+    }
+</script>
+
+<!-- 6. Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar. -->
+<p>6.) </p>
+<input type="text" id="year">
+<button onclick="calculateLeapYear()"> Determine if year is Leap Year! </button>
+<p id="result"></p>
+
+<script>
+function calculateLeapYear() {
+
+    let year = document.getElementById("year").value;
+
+    if (year % 4 !== 0) {
+        document.getElementById("result").innerHTML = "Common Year"; //console.log("Common Year");
+    }
+    else if (year % 100 !== 0) {
+        document.getElementById("result").innerHTML = "Leap Year"; //console.log("Leap Year");
+    }
+    else if (year % 400 !== 0) {
+        document.getElementById("result").innerHTML = "Common Year"; //console.log("Common Year");
+    }
+    else {
+        document.getElementById("result").innerHTML = "Leap Year"; //console.log("Leap Year")
+    };  
+
+}
+</script>
+
+<!-- 7. Write a JavaScript program to find 1st January is being a Sunday between 2014 and 2050.  -->
+<p>7.) </p>
+<p id="output"></p>
+<script>
+    str = "";
+
+    for (var year = 2014; year <= 2050; year++) {
+    var d = new Date(year, 0, 1);
+        if (d.getDay() === 0) {
+          console.log('The first day of ' + year + ' is a Sunday'); // answer on console
+          str += 'The first day of ' + year + ' is a Sunday' + '<br>'; // answer on page
+        }
+    }
+  
+  document.getElementById("output").innerHTML = str;
+</script>
+
+<!-- 8. Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".   -->
+<p>8.) </p>
+<input type="text" id="guessNumber">
+<button onclick="lucky()">Are you lucky? </button>
+<p id="display"></p>
+
+<script>
+    let luckyNumber = Math.floor(Math.random() * 10) + 1;
+    console.log(luckyNumber); //so you can check the randoum number in console
+
+    function lucky() {
+        let guessNumber = document.getElementById("guessNumber").value; //for text to be read by function it must be inside
+
+        if (luckyNumber == guessNumber) {
+            document.getElementById("display").innerHTML = "Good Work";
+        }
+        else {
+            document.getElementById("display").innerHTML = "Not matched";
+        }
+    }
+</script>
+
+<!-- 9. Write a JavaScript program to calculate days left until next Christmas.  -->
+<p>9.) Check console for ans. </p>
+<p id="christmas"></p>
+<script>
+    today=new Date();
+
+    var cmas=new Date(today.getFullYear(), 11, 25);
+        if (today.getMonth()==11 && today.getDate()>25) 
+        {
+        cmas.setFullYear(cmas.getFullYear()+1); 
+        }  
+    var one_day=1000*60*60*24;
+    console.log(Math.ceil((cmas.getTime()-today.getTime())/(one_day))+
+    " days left until Christmas!");
+    document.getElementById("christmas").innerHTML = Math.ceil((cmas.getTime()-today.getTime())/(one_day))+
+    " days left until Christmas!";
+</script>
+<!-- 10. Write a JavaScript program to calculate multiplication and division of two numbers (input from user). 
+
+    ```
+    1st Number: xx
+    2nd Number: xx
+    
+    Multiply Button    Divide Button
+    
+    The Result Is:
+    xxx
+    ``` -->
+<p>10.) </p>
+<p>1st Number:</p>
+<input type="text" id="txt1">
+<p>2nd Number: </p>
+<input type="text" id="txt2">
+<br>
+<button onclick="multiply()">Multiply Button</button>
+<button onclick="divide()">Divide Button</button>
+
+<p>The Result is: </p>
+<p id="resultMulDiv"></p>
+
+<script>
+    function multiply() {
+        let num1 = parseInt(document.getElementById("txt1").value);
+        let num2 = parseInt(document.getElementById("txt2").value);
+
+        let product = num1 * num2;
+        document.getElementById("resultMulDiv").innerHTML = product;
+    }
+
+    function divide() {
+        let num1 = parseInt(document.getElementById("txt1").value);
+        let num2 = parseInt(document.getElementById("txt2").value);
+
+        let quotient = num1 / num2;
+        document.getElementById("resultMulDiv").innerHTML = quotient;
+    }
+</script>

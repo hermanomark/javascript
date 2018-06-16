@@ -1,0 +1,158 @@
+<!-- JavaScript Statements -->
+<h2>JavaScript Statements</h2>
+
+<p>A <b>JavaScript program</b> is a list of <b>statements</b> to be executed by a computer.</p>
+
+<p id="demo1"></p>
+<p id="demo_es6"> </p>
+
+<script>
+
+var x, y, z;  // Statement 1
+x = 5;        // Statement 2
+y = 6;        // Statement 3
+z = x + y;    // Statement 4
+
+document.getElementById("demo1").innerHTML = "The value of z is " + z + ".";
+document.getElementById("demo_es6").innerHTML = `The value of z is ${z}.`; // You can print in also in JS ES6.
+
+</script>
+<!-- 
+JavaScript Programs
+
+A computer program is a list of "instructions" to be "executed" by a computer.
+
+In a programming language, these programming instructions are called statements.
+
+A JavaScript program is a list of programming statements. -->
+
+<!-- In HTML, JavaScript programs are executed by the web browser. -->
+
+<!-- JavaScript statements are composed of:
+
+Values, Operators, Expressions, Keywords, and Comments.
+
+This statement tells the browser to write "Hello Dolly." inside an HTML element with id="demo": -->
+
+<p>In HTML, JavaScript statements are executed by the browser.</p>
+
+<p id="demo2"></p>
+
+<script>
+document.getElementById("demo2").innerHTML = "Hello Dolly.";
+</script>
+
+<!-- Most JavaScript programs contain many JavaScript statements. -->
+
+<!-- The statements are executed, one by one, in the same order as they are written. -->
+
+<!-- JavaScript programs (and JavaScript statements) are often called JavaScript code.  -->
+
+<!-- Semicolons ; -->
+
+<!-- Semicolons separate JavaScript statements. -->
+
+<!-- Add a semicolon at the end of each executable statement:  -->
+
+<p>JavaScript statements are separated by semicolons.</p>
+
+<p id="demo3"></p>
+
+<script>
+var a, b, c;
+a = 1;
+b = 2;
+c = a + b;
+document.getElementById("demo3").innerHTML = c;
+</script>
+
+<!-- When separated by semicolons, multiple statements on one line are allowed: -->
+
+<p>Multiple statements on one line is allowed.</p>
+
+<p id="demo4"></p>
+
+<script>
+var a, b, c;
+var a = 1; b = 2; c = a + b;
+document.getElementById("demo4").innerHTML = c;
+</script>
+
+<!-- On the web, you might see examples without semicolons. -->
+<!-- Ending statements with semicolon is not required, but highly recommended. -->
+
+<!-- JavaScript White Space -->
+
+<!-- JavaScript ignores multiple spaces. You can add white space to your script to make it more readable. -->
+
+<!-- The following lines are equivalent: -->
+
+<!-- var person = "Hege";
+var person="Hege"; -->
+
+<!-- A good practice is to put spaces around operators ( = + - * / ): -->
+
+<!-- var x = y + z;  -->
+
+<!-- JavaScript Line Length and Line Breaks -->
+
+<!-- For best readability, programmers often like to avoid code lines longer than 80 characters. -->
+
+<!-- If a JavaScript statement does not fit on one line, the best place to break it, is after an operator: -->
+
+<p>
+The best place to break a code line is after an operator or a comma.
+</p>
+
+<p id="demo5"></p>
+
+<script>
+document.getElementById("demo5").innerHTML =
+"Hello Dolly!";
+</script>
+
+<!-- JavaScript Code Blocks
+
+JavaScript statements can be grouped together in code blocks, inside curly brackets {...}.
+
+The purpose of code blocks is to define statements to be executed together.
+
+One place you will find statements grouped together in blocks, is in JavaScript functions: -->
+
+<p>JavaScript code blocks are written between { and }</p>
+
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+<p id="demo6"></p>
+<p id="demo7"></p>
+
+<script>
+function myFunction() {
+    document.getElementById("demo6").innerHTML = "Hello Dolly!";
+    document.getElementById("demo7").innerHTML = "How are you?";
+}
+</script>
+
+<!-- In this tutorial we use 4 spaces of indentation for code blocks.
+You will learn more about functions later in this tutorial. -->
+
+<!-- JavaScript Keywords
+
+JavaScript statements often start with a keyword to identify the JavaScript action to be performed.
+
+Here is a list of some of the keywords you will learn about in this tutorial:  -->
+
+<!-- Keyword   Description
+break   Terminates a switch or a loop
+continue  Jumps out of a loop and starts at the top
+debugger  Stops the execution of JavaScript, and calls (if available) the debugging function
+do ... while  Executes a block of statements, and repeats the block, while a condition is true
+for   Marks a block of statements to be executed, as long as a condition is true
+function  Declares a function
+if ... else   Marks a block of statements to be executed, depending on a condition
+return  Exits a function
+switch  Marks a block of statements to be executed, depending on different cases
+try ... catch   Implements error handling to a block of statements
+var   Declares a variable
+
+JavaScript keywords are reserved words. Reserved words cannot be used as names for variables. -->
