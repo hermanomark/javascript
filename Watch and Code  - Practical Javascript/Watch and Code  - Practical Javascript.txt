@@ -1,0 +1,280 @@
+Practical javascript by Watch and code
+
+I. Introduction.
+Practical Javascript - Learning real world skills.
+
+We're gonna build a todo list!
+Most of the web application are just like a todo list. e.g. facebook, twiiter, slack etc.
+The application will be an ugly todolist because to make it beautiful we're gonna need to learn some css.
+5 main features:
+1. Ability to create an item
+2. Ability to toggle an single item, like marking it for complete or reset it again.
+3. Ability to toggle everything at once
+4. Ability to edit an item
+5. Ability to delete an item
+
+II. Support 
+Joined their facebook group - (https://www.facebook.com/groups/514043678767094/about/)
+
+III. Tools 
+Track your progress
+Get google chrome
+Get plunker - just sign up
+
+IV. Version 1 - Arrays
+Requirements - make a requirement to your application. It is use in real world. Break it down large task to little tiny pieces.
+e.g.
+1. It should have a place to store todos
+2. It should have a way to display todos
+3. It should have a way to add todos
+4. It should have a way to change todos
+5. It should have a way to delete a todo
+
+Go to chrome, inspect and go to console
+
+> it should have a place to store todos
+- Create an array and array is a list.
+var todos = ['item 1', 'item 2', 'item 3']
+
+> It should have a way to display todos
+- displaying in console.
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1, item 2, item 3
+
+> It should have a way to add todos
+- using the push method.
+todos.push("item 4");
+=> ["item 4"];
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1, item 2, item 3, item 4
+
+> It should have a way to change todos
+- displaying a todo by its index and assigining it to a new value.
+todos[0]
+todos[0] = "item 1 updated";
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1 updated, item 2, item 3, item 4
+
+> It should have a way to delete a todo
+todos.splice(0, 1) //note: 1st number is the position and second number is how many
+console.log("Todo lists: " + todos); 
+=> Todo lists: item 2, item 3, item 4
+
+V. Functions
+Functions are just recipe:
+  makeTurkeySandwich
+    Get one slice of bread.
+    Add turkey.
+    Put a slice of bread on top.
+
+Structure of function:
+function makeTurkeySandwich() {
+  //below is not really a js code
+  Get one slice of bread;
+  Add turkey;
+  Put a slice of bread on top;
+}
+
+Running a function:
+makeTurkeySandwich();
+
+Customizing function: 
+  makeSandWith _____
+    Get one slice of bread.
+    Add _____.
+    Put a slice of bread on top.
+
+function makeSandwichWith(filling) { 
+  Get one slice of bread;
+  Add filling;
+  Put a slice of bread on top;
+}
+Note: the things inside the functions are called parameters
+
+makeSandwichWith _ham_
+makeSandwichWith('ham');
+Note: the things you put when you use the function are called arguements
+
+console.log(makeSandwichWith(ham));
+
+More on customizing functions:
+function sayHiTo(person) {
+  console.log('Hi' + person);
+}
+
+sayHiTo('mark');
+=> Hi mark
+
+Requirements:
+1. It should have a function to display todos
+2. It should have a function to add todos
+3. It should have a function to change todos
+4. It should have a function to delete a todos
+
+> It should have a function to display todos
+var todos = ['item 1', 'item 2', 'item 3'];
+function displayTodos() {
+  console.log('My todos: ' + todos);
+}
+
+displayTodos();
+=> My todos: item 1, item 2, item 3
+
+> It should have a function to add todos
+function addTodo(todo) {
+  todos.push(todo);
+  displayTodos();
+}
+
+addTodo('item 4');
+=> My todos: item 1, item 2, item 3, item 4
+
+> It should have a function to change todos
+function changeTodo(position, newValue) {
+  todos[position] = newValue;
+  displayTodos();
+}
+
+changeTodo(0, "Changed");
+=> My todos: Changed, item 2, item 3, item 4
+
+> It should have a function to delete a todos
+function deleteTodo(position) {
+  todos.splice(position, 1);
+  displayTodos();
+}
+
+deleteTodo(3);
+=> My todos: Changed, item 2, item 3
+
+ES6 version:
+
+let todos = ['item 1', 'item 2', 'item 3'];
+const displayTodos = () => {
+  console.log(`My todos` ${todos}`)
+}
+
+const addTodo = (todo) => {
+  todos.push(todo);
+  displayTodos();
+}
+
+const changeTodo = (position, newValue) => {
+  todos[position] = newValue;
+  displayTodos();
+}
+
+const deleteTodo = (position) => {
+  todos.splice(position, 1);
+  displayTodos();
+}
+
+VI. Functions and Variables
+var myName = 'Gordon';
+
+function sayName() {
+  var secret = 'watchandcode'
+  console.log(myName);
+}
+
+sayName(); // will work
+console.log(secret); // will not work
+
+If you're inside of a function, you can look out and see data, but the opposite isn't true. If you're outside, you can't look in.
+
+Circles and Arrows - To visualize to avoid referencing errors, draw circle in a function then write an arrow from displaying output to the variable. If displaying output(console.log()) is referencing inside the circle that's a referencing error.
+
+Scope - variable visibility, what viariables you can see at that point.
+
+VII. Objects
+Objects to group related data and functions together.
+
+var myComputer = { 
+  operatingSystem: 'mac',
+  screenSize: '15 inches',
+  purchaseYear: '2011' 
+};
+
+myComputer
+=> operatingSystem: 'mac',
+  screenSize: '15 inches',
+  purchaseYear: '2011' 
+
+myComputer.operatingSystem
+=> 'mac'
+
+myComputer.screenSize
+=> '15 inches'
+
+Objects and functions:
+method - function on an object
+var gordon = {
+  name: 'Gordon',
+  sayName: function() { 
+    console.log(this.name); // refering to entire object
+  }
+}
+gordon.sayName();
+
+=> 'Gordon';
+
+Plunker:
+Sign up for plunker: https://plnkr.co
+
+v3 Requirements
+- We wanna to put everything so far in an object
+1. It should store the todos array on a object
+2. It should have displayTodo method
+3. It should have an addTodo method
+4. It should have a changeTodo method
+5. It should have a deleteTodo method
+
+>  It should store the todos array on a object
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3']
+};
+
+if you do this on plunker: Open plunker inspect element, on dropdown select plunkerpreviewtag hit clear console.
+
+todoList;
+=> {todos: Array(3)} //you can expand this output
+
+>  It should have displayTodo method
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3'],
+  displayTodos: function() {
+    console.log('My todos ' + this.todos); // this keyword is referencing the entire object
+  }
+};
+
+todoList.displayTodos();
+
+> It should have an addTodo method
+> It should have a changeTodo method
+> It should have a deleteTodo method
+
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3'],
+  displayTodos: function() {
+    console.log('My todos ' + this.todos);
+  },
+  addTodo: function(todo) {
+    this.todos.push(todo);
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position] = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  }
+};
+
+todoList.addTodo('item 4');
+=> My todos: item 1, item 2, item 3, item 4
+todoList.changeTodo(3, changed);
+=> My todos: item 1, item 2, item 3, changed
+todoList.deleteTodo(3);
+=> My todos: item 1, item 2, item 3
