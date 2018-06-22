@@ -278,3 +278,139 @@ todoList.changeTodo(3, changed);
 => My todos: item 1, item 2, item 3, changed
 todoList.deleteTodo(3);
 => My todos: item 1, item 2, item 3
+
+VIII. Success is the process
+- Don't compare yourself to other programmers
+- Copy others programmers process
+- Mind the things you can control
+- Being great at asking questions
+- Developer must be great at asking questions: https://medium.com/@gordon_zhu/how-to-be-great-at-asking-questions-e37be04d0603
+
+VIII. Booleans
+- Booleans representation of true and false.
+
+Requirements:
+1. todoList.addTodo should add objects
+2. todoList.changeTodo should change the todoText property
+3. todoList.togleCompleted should change the completed property
+
+> todoList.addTodo should add objects
+
+bit of code:
+ addTodo: function(todoText) { //addTodo('hi')
+    this.todos.push({
+     todoText: todoText, // this will be hi
+     completed: false
+    });
+    this.displayTodos();
+
+>  todoList.changeTodo should change the todoText property
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+
+>  todoList.togleCompleted should change the completed property
+    toggleCompleted: function(position) {
+      var todo = this.todos[position];
+      todo.completed = !todo.completed
+      this.displayTodos();
+    }
+
+Code: 
+
+var todoList = {
+  todos: [],
+  displayTodos: function() {
+    console.log('My todos ' + this.todos);
+  },
+  addTodo: function(todoText) { //addTodo('hi')
+    this.todos.push({
+     todoText: todoText, // this will be hi
+     completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  },
+  todoList.togleCompleted should change the completed property
+    toggleCompleted: function(position) {
+      var todo = this.todos[position];
+      todo.completed = !todo.completed
+      this.displayTodos();
+    }
+};
+
+IX. Loops of Logic
+
+The for loop:
+i = 0               // initialization - make a variable to keep track of how many you wanna do something
+Say "hey" if i < 3  // Condition - you have that kinda condition if this keep going if its not stop
+Increase i by 1     // final-expression - this will happen after each round
+
+0 "hey"
+1 "hey"
+2 "hey"
+3 stop
+
+for (initialization; condition; final-expression) {
+  console.log('hey');
+}
+
+for (var i = 0; i < 3; i = i + 1 ) {
+  console.log('hey');
+}
+
+// i = i + 1;
+// i = i++;
+// the same but increment is so common that we made a javascript code of i++
+
+for (var i = 0; i < 3; i++ ) {
+  console.log('hey');
+}
+
+=> hey
+hey
+hey
+
+for (var i = 0; i <= 3; i++) {
+  console.log(i);
+}
+
+=> 1
+2
+3
+
+for (var i = 10; i >= 0; i--) {
+  console.log(i);
+}
+
+=> 10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+
+for (var i = 0; i <= 10; i = i + 2) {
+  console.log(i);
+}
+
+=> 0
+2
+4
+6
+8
+10
+
+Looping over arrays:
