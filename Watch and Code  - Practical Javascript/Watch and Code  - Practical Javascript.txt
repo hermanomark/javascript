@@ -600,3 +600,129 @@ var todoList = {
 Test this on plunker
 
 XII. Interlude - Data Types and Comparisons
+
+Javascript data types:
+
+- Objects (can be as complex as you want)
+  - { }         // todoList, arrays, functions
+- Primitives (building blocks)
+  1. String     // 'Look at this string!'
+  2. Number     // 1, 2, 3, 4 ...
+  3. Boolean    // true, false
+  4. Undefined  // value that hasn't been set
+  5. Null       // 'Nothing'
+
+If it's not a primitive then it's an object!
+
+Comparisons with primitives:
+'gordon' === 'gordon'
+=> true
+'gordon1' === 'gordon'
+=> false
+1 === 1
+=> true
+1 === 2
+=> false
+1000 === 100
+=> true
+true === true
+=> true
+true === false
+=> false
+false === false
+=> false
+undefined === undefined
+=> true
+null === null
+=> true
+undefined === null
+=> false
+
+Comparisons with objects:
+2 === 2
+=> true
+2 === 3
+=> false
+// if looks the same probably the same, if looks different probably different
+// In obects is completely different
+{} === {}
+=> false
+// weird comparison for objects
+[1, 2, 3] === [1, 2 ,3]
+=> false
+{} === {}
+// Explatnation:
+Houses: 
+identical house 1
+identical house 2
+identical house 3
+
+Primitive (values):
+2
+2
+2
+
+Objects (references):
+{} => memory address 1
+{} => memory address 2
+{} => memory address 3
+
+In javascript objects compares 2 different memory address so it's false.
+
+{} ==== {}
+=> false // because 2 separate object
+
+var houseA = {};
+houseA === houseA
+=> true // because only 1 object is being compared
+
+How are primitives and objects stored inside of variables?
+Code example 1:
+var myPrimitive = 10;
+var myObject = {name: 'gordon'};
+
+diagram:
+myPrimitive: 10
+myObject: Memory address 1 --> {name: 'gordon'}
+
+Code example 2:
+var myHouse = {color: 'blue'};
+myHouse.color = 'red';
+
+myHouse: Memory address 1 --> {color: 'red'}
+
+Code example 3:
+var myHouse = {color: 'blue'}
+var color = myHouse.color;
+color = 'red';
+
+myHouse.color ? // ans. blue
+
+diagram:
+myHouse: Memory address 1 --> {color: blue}
+myHouse.color: 'blue'
+color: 'red'
+
+Code example 4:
+var myHouse1 = {color: 'blue'};
+var myHouse2 = myHouse1;
+myHouse2.color = 'red';
+
+myHouse1.color? // ans. red
+myHouse2.color? // ans. red
+
+diagram:
+myHouse1: Memory address 1 --> {color: 'red'}
+myHouse2: Memory address 1 <--
+
+Code example 5:
+var myHouse1 = {color: 'blue'}
+var myHouse2 = {color: 'blue'}
+myHouse2.color = 'red'';
+
+myHouse1.color? // ans. blue 
+myHouse2.color? // ans. red
+
+diagram:
+myHouse1: Memory address 1 --> {color: blue}
+myHouse2: Memory address 2 --> {color: red}
