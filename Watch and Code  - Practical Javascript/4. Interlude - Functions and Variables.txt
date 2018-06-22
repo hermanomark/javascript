@@ -1,0 +1,16 @@
+VI. Functions and Variables
+var myName = 'Gordon';
+
+function sayName() {
+  var secret = 'watchandcode'
+  console.log(myName);
+}
+
+sayName(); // will work
+console.log(secret); // will not work
+
+If you're inside of a function, you can look out and see data, but the opposite isn't true. If you're outside, you can't look in.
+
+Circles and Arrows - To visualize to avoid referencing errors, draw circle in a function then write an arrow from displaying output to the variable. If displaying output(console.log()) is referencing inside the circle that's a referencing error.
+
+Scope - variable visibility, what viariables you can see at that point.

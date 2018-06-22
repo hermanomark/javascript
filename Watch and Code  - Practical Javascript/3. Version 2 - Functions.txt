@@ -1,0 +1,108 @@
+V. Functions
+Functions are just recipe:
+  makeTurkeySandwich
+    Get one slice of bread.
+    Add turkey.
+    Put a slice of bread on top.
+
+Structure of function:
+function makeTurkeySandwich() {
+  //below is not really a js code
+  Get one slice of bread;
+  Add turkey;
+  Put a slice of bread on top;
+}
+
+Running a function:
+makeTurkeySandwich();
+
+Customizing function: 
+  makeSandWith _____
+    Get one slice of bread.
+    Add _____.
+    Put a slice of bread on top.
+
+function makeSandwichWith(filling) { 
+  Get one slice of bread;
+  Add filling;
+  Put a slice of bread on top;
+}
+Note: the things inside the functions are called parameters
+
+makeSandwichWith _ham_
+makeSandwichWith('ham');
+Note: the things you put when you use the function are called arguements
+
+console.log(makeSandwichWith(ham));
+
+More on customizing functions:
+function sayHiTo(person) {
+  console.log('Hi' + person);
+}
+
+sayHiTo('mark');
+=> Hi mark
+
+Requirements:
+1. It should have a function to display todos
+2. It should have a function to add todos
+3. It should have a function to change todos
+4. It should have a function to delete a todos
+
+> It should have a function to display todos
+var todos = ['item 1', 'item 2', 'item 3'];
+function displayTodos() {
+  console.log('My todos: ' + todos);
+}
+
+displayTodos();
+=> My todos: item 1, item 2, item 3
+
+> It should have a function to add todos
+function addTodo(todo) {
+  todos.push(todo);
+  displayTodos();
+}
+
+addTodo('item 4');
+=> My todos: item 1, item 2, item 3, item 4
+
+> It should have a function to change todos
+function changeTodo(position, newValue) {
+  todos[position] = newValue;
+  displayTodos();
+}
+
+changeTodo(0, "Changed");
+=> My todos: Changed, item 2, item 3, item 4
+
+> It should have a function to delete a todos
+function deleteTodo(position) {
+  todos.splice(position, 1);
+  displayTodos();
+}
+
+deleteTodo(3);
+=> My todos: Changed, item 2, item 3
+
+ES6 version:
+
+let todos = ['item 1', 'item 2', 'item 3'];
+const displayTodos = () => {
+  console.log(`My todos` ${todos}`)
+}
+
+const addTodo = (todo) => {
+  todos.push(todo);
+  displayTodos();
+}
+
+const changeTodo = (position, newValue) => {
+  todos[position] = newValue;
+  displayTodos();
+}
+
+const deleteTodo = (position) => {
+  todos.splice(position, 1);
+  displayTodos();
+}

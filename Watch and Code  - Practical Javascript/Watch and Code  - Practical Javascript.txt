@@ -60,7 +60,7 @@ todos.splice(0, 1) //note: 1st number is the position and second number is how m
 console.log("Todo lists: " + todos); 
 => Todo lists: item 2, item 3, item 4
 
-V. Functions
+V. Version 2 - Functions
 Functions are just recipe:
   makeTurkeySandwich
     Get one slice of bread.
@@ -169,7 +169,7 @@ const deleteTodo = (position) => {
   displayTodos();
 }
 
-VI. Functions and Variables
+VI. Interlude - Functions and Variables
 var myName = 'Gordon';
 
 function sayName() {
@@ -186,7 +186,7 @@ Circles and Arrows - To visualize to avoid referencing errors, draw circle in a 
 
 Scope - variable visibility, what viariables you can see at that point.
 
-VII. Objects
+VII. Version 3 - Objects
 Objects to group related data and functions together.
 
 var myComputer = { 
@@ -286,7 +286,7 @@ VIII. Success is the process
 - Being great at asking questions
 - Developer must be great at asking questions: https://medium.com/@gordon_zhu/how-to-be-great-at-asking-questions-e37be04d0603
 
-VIII. Booleans
+IX. Version 4 - Booleans
 - Booleans representation of true and false.
 
 Requirements:
@@ -295,8 +295,6 @@ Requirements:
 3. todoList.togleCompleted should change the completed property
 
 > todoList.addTodo should add objects
-
-bit of code:
  addTodo: function(todoText) { //addTodo('hi')
     this.todos.push({
      todoText: todoText, // this will be hi
@@ -316,7 +314,7 @@ bit of code:
       this.displayTodos();
     }
 
-Code: 
+Code should look like this: 
 
 var todoList = {
   todos: [],
@@ -346,7 +344,7 @@ var todoList = {
     }
 };
 
-IX. Loops of Logic
+X. Version 5 - Loops of Logic
 
 The for loop:
 i = 0               // initialization - make a variable to keep track of how many you wanna do something
@@ -414,3 +412,191 @@ for (var i = 0; i <= 10; i = i + 2) {
 10
 
 Looping over arrays:
+
+for (var i = 0; i < 3; i++ ) {
+  console.log('hey');
+}
+
+var testArray = ['item 1', 'item 2', 'item 3'];
+
+testArray[0];
+=> 'item 1'
+testArray[1];
+=> 'item 2'
+testArray[2];
+=> 'item 3'
+
+var testArray = ['item 1', 'item 2', 'item 3'];
+
+for (var i = 0; i < 3; i++ ) {
+  console.log(testArray[i]);
+}
+
+=> item 1
+item 2
+item 3
+
+var testArray = ['item 1', 'item 2', 'item 3'];
+
+testArray.push('item 4');
+
+for (var i = 0; i < 3; i++ ) {
+  console.log(testArray[i]);
+}
+
+=> item 1
+item 2
+item 3 
+// will not print the item 4 because the condition stops at 3
+
+var testArray = ['item 1', 'item 2', 'item 3'];
+
+testArray.push('item 4');
+
+for (var i = 0; i < testArray.length; i++ ) {
+  console.log(testArray[i]);
+}
+
+=> item 1
+item 2
+item 3
+item 4 // prints now the item 4 because using .length it makes it dynamic
+
+
+Requirements:
+1. .displayTodos should show .todoText
+2. .displayTodos should tell you if .todos is empty
+3. .displayTodos should show .completed
+
+var todoList = {
+  todos: [],
+  displayTodos: function() {
+    // .displayTodos should tell you if .todos is empty
+    if (this.todos.length === 0) {
+      console.log('Your todo list is empty');
+    }
+    else {
+      // .displayTodos should show .todoText
+      console.log('My todos:');
+      for (var i = 0; i < this.todos.length; i++) {
+        console.log(this.todos[i].todoText);
+        // .displayTodos should show .completed
+        if (this.todos[i].completed === true) {
+          console.log('(X)', this.todos[i].todoText);
+        }
+        else {
+          console.log('( )', this.todos[i].todoText);
+        }
+      }
+    }
+  },
+  addTodo: function(todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  },
+  toggleCompleted: function(position) {
+    var todo = this.todos[position];
+    todo.completed = !todo.completed;
+    this.displayTodos();
+  }
+};
+
+// .displayTodos should show .completed
+(X) item 1
+( ) item 2
+( ) item 3
+
+Use plunker to test the code
+
+XI. Version 6 - Thinking In Code
+Biggest feature: toggle all todos to complete
+todomvc.com/examples/vanillajs/ - play around the app
+
+Requirements:
+1. .toggleAll: If everything's true, make everything false
+2. .toggleAll: Otherwise make everything true.
+
+var todoList = {
+  todos: [],
+  displayTodos: function() {
+    // .displayTodos should tell you if .todos is empty
+    if (this.todos.length === 0) {
+      console.log('Your todo list is empty');
+    }
+    else {
+      // .displayTodos should show .todoText
+      console.log('My todos:');
+      for (var i = 0; i < this.todos.length; i++) {
+        console.log(this.todos[i].todoText);
+        // .displayTodos should show .completed
+        if (this.todos[i].completed === true) {
+          console.log('(X)', this.todos[i].todoText);
+        }
+        else {
+          console.log('( )', this.todos[i].todoText);
+        }
+      }
+    }
+  },
+  addTodo: function(todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  },
+  toggleCompleted: function(position) {
+    var todo = this.todos[position];
+    todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+
+    // Get number of completed todos.
+    for (var i = 0; i < totalTodos; i++ ) {
+      if (this.todos[i].completed === true ) {
+        completedTodos++;
+      }
+    }
+
+    // Case 1: If everything's true, make everything false
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++ ) {
+        this.todos[i].completed = false;
+      }
+    }
+    // Case 2: Otherwise, make everything true
+    else {
+       for (var i = 0; i < totalTodos; i++ ) {
+        this.todos[i].completed = true;
+      }
+    }
+
+    this.displayTodos();
+  }
+};
+
+Test this on plunker
+
+XII. Interlude - Data Types and Comparisons

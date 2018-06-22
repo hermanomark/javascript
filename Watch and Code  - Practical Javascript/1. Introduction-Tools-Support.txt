@@ -1,0 +1,20 @@
+I. Introduction.
+Practical Javascript - Learning real world skills.
+
+We're gonna build a todo list!
+Most of the web application are just like a todo list. e.g. facebook, twiiter, slack etc.
+The application will be an ugly todolist because to make it beautiful we're gonna need to learn some css.
+5 main features:
+1. Ability to create an item
+2. Ability to toggle an single item, like marking it for complete or reset it again.
+3. Ability to toggle everything at once
+4. Ability to edit an item
+5. Ability to delete an item
+
+II. Support 
+Joined their facebook group - (https://www.facebook.com/groups/514043678767094/about/)
+
+III. Tools 
+Track your progress
+Get google chrome
+Get plunker - just sign up

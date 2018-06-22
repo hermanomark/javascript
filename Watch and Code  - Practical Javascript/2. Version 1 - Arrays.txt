@@ -1,0 +1,38 @@
+IV. Version 1 - Arrays
+Requirements - make a requirement to your application. It is use in real world. Break it down large task to little tiny pieces.
+e.g.
+1. It should have a place to store todos
+2. It should have a way to display todos
+3. It should have a way to add todos
+4. It should have a way to change todos
+5. It should have a way to delete a todo
+
+Go to chrome, inspect and go to console
+
+> it should have a place to store todos
+- Create an array and array is a list.
+var todos = ['item 1', 'item 2', 'item 3']
+
+> It should have a way to display todos
+- displaying in console.
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1, item 2, item 3
+
+> It should have a way to add todos
+- using the push method.
+todos.push("item 4");
+=> ["item 4"];
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1, item 2, item 3, item 4
+
+> It should have a way to change todos
+- displaying a todo by its index and assigining it to a new value.
+todos[0]
+todos[0] = "item 1 updated";
+console.log("Todo lists: " + todos);
+=> Todo lists: item 1 updated, item 2, item 3, item 4
+
+> It should have a way to delete a todo
+todos.splice(0, 1) //note: 1st number is the position and second number is how many
+console.log("Todo lists: " + todos); 
+=> Todo lists: item 2, item 3, item 4

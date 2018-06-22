@@ -1,0 +1,99 @@
+VII. Objects
+Objects to group related data and functions together.
+
+var myComputer = { 
+  operatingSystem: 'mac',
+  screenSize: '15 inches',
+  purchaseYear: '2011' 
+};
+
+myComputer
+=> operatingSystem: 'mac',
+  screenSize: '15 inches',
+  purchaseYear: '2011' 
+
+myComputer.operatingSystem
+=> 'mac'
+
+myComputer.screenSize
+=> '15 inches'
+
+Objects and functions:
+method - function on an object
+var gordon = {
+  name: 'Gordon',
+  sayName: function() { 
+    console.log(this.name); // refering to entire object
+  }
+}
+gordon.sayName();
+
+=> 'Gordon';
+
+Plunker:
+Sign up for plunker: https://plnkr.co
+
+v3 Requirements
+- We wanna to put everything so far in an object
+1. It should store the todos array on a object
+2. It should have displayTodo method
+3. It should have an addTodo method
+4. It should have a changeTodo method
+5. It should have a deleteTodo method
+
+>  It should store the todos array on a object
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3']
+};
+
+if you do this on plunker: Open plunker inspect element, on dropdown select plunkerpreviewtag hit clear console.
+
+todoList;
+=> {todos: Array(3)} //you can expand this output
+
+>  It should have displayTodo method
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3'],
+  displayTodos: function() {
+    console.log('My todos ' + this.todos); // this keyword is referencing the entire object
+  }
+};
+
+todoList.displayTodos();
+
+> It should have an addTodo method
+> It should have a changeTodo method
+> It should have a deleteTodo method
+
+var todoList = {
+  todos: ['item 1', 'item 2', 'item 3'],
+  displayTodos: function() {
+    console.log('My todos ' + this.todos);
+  },
+  addTodo: function(todo) {
+    this.todos.push(todo);
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position] = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  }
+};
+
+todoList.addTodo('item 4');
+=> My todos: item 1, item 2, item 3, item 4
+todoList.changeTodo(3, changed);
+=> My todos: item 1, item 2, item 3, changed
+todoList.deleteTodo(3);
+=> My todos: item 1, item 2, item 3
+
+VIII. Success is the process
+- Don't compare yourself to other programmers
+- Copy others programmers process
+- Mind the things you can control
+- Being great at asking questions
+- Developer must be great at asking questions: https://medium.com/@gordon_zhu/how-to-be-great-at-asking-questions-e37be04d0603
