@@ -118,6 +118,6 @@ Focus on understanding, not building from scratch:
 - Forget from building from sratch, focus everything and everything on understanding.
 - Memorizing won't work, even the professor forget somethings.
 - Focus on learning it once and forget about it, when you encountered again it you could just look it up again and refresh your memory.
-- Realitty check, tone down your expectation, be really good at looking it up.
+- Reality check, tone down your expectation, be really good at looking it up.
 - Debugger is a tool for you to understand things.
 - Again focus on undestanding and not building from sratch.

@@ -1,0 +1,6 @@
+XVI. Version 9 - Escape from the console
+
+V9 Requirements
+1. There should be an element for every todo
+2. Each li element should contain .todoText
+3. Each li element should show .completed
