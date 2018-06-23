@@ -1,0 +1,123 @@
+XIV. Interlude - Don't wonder about things the debugger can tell you 
+
+- Issues are bugs
+- Fixing issue and findung bugs are debugging
+
+Tool:
+- Debugger - how it works put a debugger in code:
+
+var todoList = {
+  todos: [],
+  displayTodos: function() {
+    debugger; // this is the debugger
+    if (this.todos.length === 0 ) {
+     console.log('Your todo list is emty');
+    }
+    else {
+      console.log('My todos:');
+      for (var i = 0; i < this.todos.length; i++ ) {
+        if (this.todos[i].completed === true ) {
+          console.log('(X)' + this.todos[i].todoText);
+        }
+        else {
+          console.log('( )' + this.todos[i].todoText);
+        }
+      }
+    }
+  },
+  addTodo: function(todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  },
+  toggleCompleted: function(position) {
+    var todo = this.todos[position];
+    todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    
+    // Get number of completed todos.
+    for (var i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+       completedTodos++; 
+      }
+    }
+    
+    // Case 1: If everything's true, make everything false
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;   
+      }
+    }
+    // Case 2: Otherwise, make everything true
+    else {
+       for (var i = 0; i < totalTodos; i++ ) {
+        this.todos[i].completed = true;
+      }
+    }
+    
+    this.displayTodos();
+  }
+};
+
+var displayTodosButton = document.getElementById('displayTodosButton');
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+displayTodosButton.addEventListener('click', function () {
+  todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', function () {
+  todoList.toggleAll();
+});
+
+debugger at displayTodo();
+- When you run the app it will stop, you will see a stop and run button in the app, and at sources you can see the code.
+- Debugger do is to inspect each section of the element
+
+debugger at addTodo();
+- Again it will pause the app, now you can see the magic of debugger how it literally go through with the code
+- Now if you go through the function this.displayTodos(); you can click the arrow down of the debugger and go inside the function.
+- When you click the next button you could literally see how the code works.
+
+debugger at changeTodo();
+- Go through each line of code how changeTodo works.
+- Now I have a more understanding about debugger.
+
+debugger at deleteTodo();
+- Run debugger again, add 1 item in todo, look at array it will become 0
+
+debugger at toggleCompleted();
+- debuggeer should be something that you naturally do.
+- Run the debugger again and you could see how the code change the completed from false to true.
+
+debugger at toggleAll();
+- You can see in the code how for loops and conditional works.
+- Did the exercise for case 2 to work.
+
+Use debugger all the time!
+- It's the weapon to understand your program.
+- Having full visibility of the program.
+- Even if it's working you can use it so you know how your program works.
+- If you have question on a line of code - USE THE DEBUGGER!
+
+Focus on understanding, not building from scratch:
+- Forget from building from sratch, focus everything and everything on understanding.
+- Memorizing won't work, even the professor forget somethings.
+- Focus on learning it once and forget about it, when you encountered again it you could just look it up again and refresh your memory.
+- Realitty check, tone down your expectation, be really good at looking it up.
+- Debugger is a tool for you to understand things.
+- Again focus on undestanding and not building from sratch.

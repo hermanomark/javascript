@@ -1,0 +1,164 @@
+XIII. HTML and the DOM
+V7 Requirements
+1. There should be a "Display todos" button and a "Toggle all" button in the app
+2. Clicking "Display todos" should run todoList.displayTodos.
+3. Cliking "Toggle all" should run tdoList.toggleAll
+
+HTML is used on describing a web page
+
+<!DOCTYPE html>  <!-- telling the browser what kind of html -->
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css"> <!-- kinking your css file -->
+    <script src="script.js"></script> <!-- linking your js file -->
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <h2>Subsection title</h2>
+    <h3>Subection title</h3>
+    <p>For text</p>
+  </body>
+
+</html>
+
+- No need to memorize all the tags it's just not worth it. It's important knowing how they used.
+
+What's the DOM?
+- The Document Object Model - in plain english, it's the browser interpretation of the HTML is DOM.
+- Technical definition:
+  - A cross platform and language-independent convention, but we're only using DOM for our javascript
+  - For representing and interacting with objects in HTML, XHTML and XML documents, pretty much the same thing how the browser representing the HMTL
+  - The nodes of every document are organized in a tree structure, called the DOM tree, if you inspect the web page you could see the family tree of html
+
+Code: 
+index.html:
+<!DOCTYPE html>  <!-- telling the browser what kind of html -->
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css"> <!-- kinking your css file -->
+    
+  </head>
+
+  <body>
+    <h1>Todo List</h1>
+    
+    <button id="displayTodosButton">Display Todos</button>
+    <button id="toggleAllButton">Toggle All</button>
+    
+  <script src="script.js"></script>  <!-- linking your js file, make it a habit to put it on the bottom of the page -->
+  </body>
+
+</html>
+
+<!-- attributes gives an element an additional more information
+e.g. src, id, rel -->
+
+script.js:
+var todoList = {
+  todos: [],
+  displayTodos: function() {
+    if (this.todos.length === 0 ) {
+     console.log('Your todo list is emty');
+    }
+    else {
+      console.log('My todos:');
+      for (var i = 0; i < this.todos.length; i++ ) {
+        if (this.todos[i].completed === true ) {
+          console.log('(X)' + this.todos[i].todoText);
+        }
+        else {
+          console.log('( )' + this.todos[i].todoText);
+        }
+      }
+    }
+  },
+  addTodo: function(todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodo: function(position, newValue) {
+    this.todos[position].todoText = newValue;
+    this.displayTodos();
+  },
+  deleteTodo: function(position) {
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  },
+  toggleCompleted: function(position) {
+    var todo = this.todos[position];
+    todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    
+    // Get number of completed todos.
+    for (var i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+       completedTodos++; 
+      }
+    }
+    
+    // Case 1: If everything's true, make everything false
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;   
+      }
+    }
+    // Case 2: Otherwise, make everything true
+    else {
+       for (var i = 0; i < totalTodos; i++ ) {
+        this.todos[i].completed = true;
+      }
+    }
+    
+    this.displayTodos();
+  }
+};
+
+// 1. We want to get access to the display button.
+var displayTodosButton = document.getElementById('displayTodosButton');
+console.log(displayTodosButton);
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+// 2. We want to run displayTodos method, when someone clicks the display 
+// todos button
+
+displayTodosButton.addEventListener('click', function () {
+  todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', function () {
+  todoList.toggleAll();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
