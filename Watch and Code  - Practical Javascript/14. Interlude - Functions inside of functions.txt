@@ -1,0 +1,141 @@
+XVII. Functions inside of functions 
+
+runWithDebugger:
+function logTenNumbers() {
+  for (var i = 0; i <= 10; i++) { 
+    console.log(i);
+  }
+// just a normal function
+
+// If we want it to be debug we run
+logTenNumbers();
+debugger;
+// Now this is a manual thing we can make it inside a function
+
+// Create debugger function
+function runWithDebugger(ourFunction {
+  debugger;
+  ourFunction;
+}
+
+runWithDebugger(function logTenNumbers() {
+  for (var i = 0; i <= 10; i++) { 
+    console.log(i);
+  })
+// that way you can use functions inside a function
+// this is really a powerful tool
+
+setTimeout:
+//setTimeout is a built in function
+setTimeout(function() {
+  console.log('Wake up Mark')
+}, 5000)
+//setTimeout enhances the function inside
+
+=> 'Wake up Mark' //after 5 seconds it'll display
+
+forEach:
+var students = ['jonathan', 'jenny', 'elliot'];
+
+function logName(name) {
+  console.log(name);
+}
+
+// We can call it one by one.
+logName(students[0]);
+=> jonathan
+logName(students[1]);
+=> jenny
+logName(students[2]);
+=> elliot
+
+// We can loop it
+for (var i = 0; i < students.length; i++) {
+  logName(students[i]);
+}
+
+=> jonathan
+jenny
+elliot
+
+// Introducing the forEach a built in function to loop
+students.forEach(logName);
+
+=> jonathan
+jenny
+elliot
+
+// We can call the whole function logName
+students.forEach(function logName(name) {
+  console.log(name);
+})
+
+// We can also remove the function name and it will work just fine
+students.forEach(function(name) {
+  console.log(name);
+})
+
+// We can also creaete 2 parameters
+function forEach(myArray, myFunction) {
+  for (var i = 0; i < myArray.length; i++) { 
+    myFunction(myArray[i]);
+  }
+}
+
+// Using it and putting the while function
+forEach(students, function(student) {
+  console.log(student);
+})
+
+=> jonathan
+jenny
+elliot
+
+// Calling the logName function
+forEach(students, logName);
+
+=> jonathan
+jenny
+elliot
+
+addEventListener:
+$0
+<h1>​"HTML: Hy""per"<wbr>​"Text Markup Language"</h1>​
+var tutorialsElement = $0
+
+tutorialsElement.addEventListener('click', function() {
+  console.log('The tutorial element was clicked!');
+});
+
+=> The tutorial element was clicked!
+
+tutorialsElement.addEventListener('click', function(event) {
+console.log(event); 
+console.log('The tutorial element was clicked!');
+});
+// having the event logs a bunch of information.
+
+=> MouseEvent {isTrusted: true, screenX: 230, screenY: 204, clientX: 229, clientY: 119, …}
+The tutorial element was clicked!
+
+Buzzwords: Higher order functions and callback functions:
+
+Higher order functions:
+ - Functions that accept other functions
+ - Enhhance the behavior of other functions
+  e.g. setTimeout(), runWithDebugger(), forEach(), and addEventListener()
+
+Callback functions:
+  - The functions that are passed into higher order functions
+  e.g. functions that you give to runWithDebugger() function etc.
+
+Examples:
+runWithDebugger(function logTenNumbers() {
+  for (var i = 0; i <= 10; i++) { 
+    console.log(i);
+  })
+// runWithDebugger() - is the higher functions
+// function logTenNumbers() {
+  for (var i = 0; i <= 10; i++) { 
+    console.log(i);
+  } - is the callback functions

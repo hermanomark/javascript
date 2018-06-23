@@ -337,3 +337,6 @@ var view = {
     }
   }
 };
+
+Review:
+- The way of organizing the code is really nice!
