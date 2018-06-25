@@ -110,7 +110,7 @@ displayTodos: function() {
 //       todosUl.appendChild(todoLi);
 //     }  
     
-    todoList.todos.forEach(function(todo, position) {
+    todoList.todos.forEach(function(todo, position) { // callback funtions can pass the position not just the item in array
       var todoLi = document.createElement('li');
       var todoTextWithCompletion = '';
 
@@ -243,7 +243,7 @@ var view = {
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
     
-    todoList.todos.forEach(function(todo, position) {
+    todoList.todos.forEach(function(todo, position) { 
       var todoLi = document.createElement('li');
       var todoTextWithCompletion = '';
 
