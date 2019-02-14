@@ -136,60 +136,379 @@
 // -----------------------------------------------------------
 // Traversing The DOM
 
-let val;
+// let val;
 
-const list = document.querySelector('ul.collection');
-const listItem = document.querySelector('li.collection-item:first-child');
+// const list = document.querySelector('ul.collection');
+// const listItem = document.querySelector('li.collection-item:first-child');
 
-val = listItem;
-val = list;
+// val = listItem;
+// val = list;
 
-// Get child nodes
-val = list.childNodes;
-val = list.childNodes[0];
-val = list.childNodes[0].nodeName;
-val = list.childNodes[3].nodeType;
+// // Get child nodes
+// val = list.childNodes;
+// val = list.childNodes[0];
+// val = list.childNodes[0].nodeName;
+// val = list.childNodes[3].nodeType;
 
-// 1 - Element
-// 2 - Attribute (deprecated)
-// 3 - Text node
-// 8 - Comment
-// 9 - Document itself
-// 10 - Doctype
+// // 1 - Element
+// // 2 - Attribute (deprecated)
+// // 3 - Text node
+// // 8 - Comment
+// // 9 - Document itself
+// // 10 - Doctype
 
-// Get children element nodes
-val = list.children;
-val = list.children[1];
-list.children[1].textContent = 'Hello';
-// Children of children
-list.children[3].children[0].id = 'test-link';
-val = list.children[3].children[0];
+// // Get children element nodes
+// val = list.children;
+// val = list.children[1];
+// list.children[1].textContent = 'Hello';
+// // Children of children
+// list.children[3].children[0].id = 'test-link';
+// val = list.children[3].children[0];
 
-// First child
-val = list.firstChild;
-val = list.firstElementChild;
+// // First child
+// val = list.firstChild;
+// val = list.firstElementChild;
 
-// Last child
-val = list.lastChild;
-val = list.lastElementChild;
+// // Last child
+// val = list.lastChild;
+// val = list.lastElementChild;
 
-// Count child elements
-val = list.childElementCount;
+// // Count child elements
+// val = list.childElementCount;
 
-// Get parent node
-val = listItem.parentNode;
-val = listItem.parentElement;
-val = listItem.parentElement.parentElement;
+// // Get parent node
+// val = listItem.parentNode;
+// val = listItem.parentElement;
+// val = listItem.parentElement.parentElement;
 
-// Get next sibling
-val = listItem.nextSibling;
-val = listItem.nextElementSibling.nextElementSibling;
+// // Get next sibling
+// val = listItem.nextSibling;
+// val = listItem.nextElementSibling.nextElementSibling;
 
-// Get previous sibling
-val = listItem.previousSibling;
-val = listItem.previousElementSibling;
+// // Get previous sibling
+// val = listItem.previousSibling;
+// val = listItem.previousElementSibling;
 
-console.log(val);
+// console.log(val);
 
 // -----------------------------------------------------------
 // Creating Elements
+
+// const li = document.createElement('li');
+
+// // Add class
+// li.className = 'collection-item';
+
+// // Add id
+// li.id = 'new-item';
+
+//  // Add attribute
+//  li.setAttribute('title', 'New Item');
+
+//  // Create text node and append
+//  li.appendChild(document.createTextNode('Hello World'));
+
+// // Create new link element
+// const link = document.createElement('a');
+// // Add classes
+// link.className = 'delete-item secondary-content';
+// // Add icon html
+// link.innerHTML = '<i class="fa fa-remove"></i>';
+
+// // Append link into li
+// li.appendChild(link);
+
+//  // Append li as child to ul
+//  document.querySelector('ul.collection').appendChild(li);
+
+// console.log(li);
+
+// -----------------------------------------------------------
+// Removing  Replacing Elements
+
+// // REPLACE ELEMENT
+
+// // Create Element
+// const newHeading = document.createElement('h2');
+// // Add id
+// newHeading.id = 'task-title';
+// // Next text node
+// newHeading.appendChild(document.createTextNode('Task List'));
+
+// // Get old heading
+// const oldHeading = document.getElementById('task-title');
+// // Parent
+// const cardAction = document.querySelector('.card-action');
+
+// // Replace
+// cardAction.replaceChild(newHeading, oldHeading);
+
+// // console.log(newHeading);
+
+// // REV ELEMENT
+
+// const lis = document.querySelectorAll('li');
+// const list = document.querySelector('ul');
+
+// // Remove list item
+// lis[0].remove();
+
+// // Remove child element
+// list.removeChild(lis[3]);
+
+// // CLASSES & ATTIR
+// const firstLi = document.querySelector('li:first-child');
+// const link = firstLi.children[0];
+
+// let val;
+
+// // Classes
+// val = link.className;
+// val = link.classList;
+// val = link.classList[0];
+// link.classList.add('test');
+// link.classList.remove('test');
+// val = link;
+
+// // Attributes
+// val = link.getAttribute('href');
+// val = link.setAttribute('href', 'http://google.com');
+// val = link.hasAttribute('href');
+// link.setAttribute('title', 'Google');
+// val = link.hasAttribute('title');
+// link.removeAttribute('title');
+// val = link;
+
+// console.log(val);
+
+// -----------------------------------------------------------
+// Event Listeners  The Event Object
+
+// // document.querySelector('.clear-tasks').addEventListener('click', function(e) {
+// //     console.log('Hello World');
+
+// //     // e.preventDefault();
+// // });
+
+// document.querySelector('.clear-tasks').addEventListener('mouseover', onClick);
+
+// function onClick(e){
+//     // console.log('Clicked');
+
+//     let val;
+
+//     val = e;
+
+//     // Event target element
+//     val = e.target;
+//     val = e.target.id;
+//     val = e.target.className;
+//     val = e.target.classList;
+//     val = e.target.classList[0];
+
+//     // e.target.innerText = 'Hello';
+
+//     // Event type
+//     val = e.type;
+
+//     // Timestamp
+//     val = e.timeStamp;
+
+//     // Coords event relative to the window
+//     val = e.clientY;
+//     val = e.clientX;
+
+//     // Coords event relative to the element
+//     val = e.offsetY;
+//     val = e.offsetX;
+
+//     console.log(val);
+// }
+
+// -----------------------------------------------------------
+// Mouse Events
+
+// const clearBtn = document.querySelector('.clear-tasks');
+// const card = document.querySelector('.card');
+// const heading = document.querySelector('h5');
+
+// Click
+// clearBtn.addEventListener('click', runEvent);
+// DoubleClick
+// clearBtn.addEventListener('dblclick', runEvent);
+// Mousedown
+// clearBtn.addEventListener('mousedown', runEvent);
+// MouseUp
+// clearBtn.addEventListener('mouseup', runEvent);
+// MouseEnter
+// card.addEventListener('mouseenter', runEvent);
+// MouseLeave
+// card.addEventListener('mouseleave', runEvent);
+// Mouseover
+// card.addEventListener('mouseover', runEvent);
+// Mouseout
+// card.addEventListener('mouseout', runEvent);
+// Mousemove
+// card.addEventListener('mousemove', runEvent);
+
+// Difference between mousenter, mouseleave and moueover, mouseout is mouseover and mouseout is triggered when you mouseover, mouseout in child elements
+
+// Event Handler
+// function runEvent(e) {
+//     console.log(`EVENT TYPE: ${e.type}`);
+
+//     heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+
+//     document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
+// }
+
+// -----------------------------------------------------------
+// Keyboard  Input Events
+
+// const form = document.querySelector('form');
+// const taskInput = document.getElementById('task');
+// const heading = document.querySelector('h5');
+// const select = document.querySelector('select');
+
+// Clear input
+// taskInput.value = ``;
+
+// form.addEventListener('submit', runEvent);
+
+// keydown
+// taskInput.addEventListener('keydown', runEvent);
+// keyup
+// taskInput.addEventListener('keyup', runEvent);
+// keypress
+// taskInput.addEventListener('keypress', runEvent);
+// Focus
+// taskInput.addEventListener('focus', runEvent);
+// Blur
+// taskInput.addEventListener('blur', runEvent);
+// Cut
+// taskInput.addEventListener('cut', runEvent);
+// Paste
+// taskInput.addEventListener('paste', runEvent);
+// Input
+// taskInput.addEventListener('input', runEvent);
+// Change
+// select.addEventListener('change', runEvent)
+
+// function runEvent(e){
+//     console.log(`EVENT TYPE ${e.type}`);
+
+//     console.log(e.target.value);
+    
+//     // You can do stuff in heading with the keydown
+//     heading.innerText = e.target.value;
+
+//     // Get input value
+//     // console.log(taskInput.value);
+
+//     // prevents default behavior of submit which is redirecting to other page (action)
+//     // e.preventDefault();
+// }
+
+// -----------------------------------------------------------
+// Event Bubbling Delegation
+
+// EVENT BUBBLING
+
+// document.querySelector('.card-title').addEventListener('click', function(){
+//     console.log('card-title');
+// });
+
+// document.querySelector('.card-content').addEventListener('click', function(){
+//     console.log('card-content');
+// });
+
+// document.querySelector('.card').addEventListener('click', function(){
+//     console.log('card');
+// });
+
+// document.querySelector('.col').addEventListener('click', function(){
+//     console.log('col');
+// });
+
+// EVENT DELEGATION
+
+// How brad did it
+// document.body.addEventListener('click', deleteItem);
+
+// function deleteItem(e){
+
+//     // Not so good of doing it
+//     // if(e.target.parentElement.classList[0] === 'delete-item secondary-content'){
+//     //     console.log('delete item');
+//     // }
+
+//     // Correct way of doing it
+//     if(e.target.parentElement.classList.contains('delete-item')){
+//         console.log('delete item');
+//         e.target.parentElement.parentElement.remove();
+//     }
+// }
+
+
+// I tested my own event delegation for querySelectorAll
+// const deleteItem = document.querySelectorAll('.delete-item');
+
+// deleteItem.forEach(function(item, index) {
+//     item.addEventListener('click', delItem);
+// });
+
+// function delItem(e) {
+//     console.log('delete item');
+//     e.target.parentElement.parentElement.remove();
+// }
+
+// -----------------------------------------------------------
+// Local Session Storage
+
+// // set local storage item
+// localStorage.setItem('name', 'John');
+// localStorage.setItem('age', '23');
+
+// // set session storage item
+// // sessionStorage.setItem('name', 'Beth');
+
+// // remove from storage
+// // localStorage.removeItem('name');
+
+// // get from storage
+// const name = localStorage.getItem('name');
+// const age = localStorage.getItem('age');
+
+// // clear local storage
+// localStorage.clear();
+
+// console.log(name, age);
+
+document.querySelector('form').addEventListener('submit', 
+    function(e){
+        
+        const task = document.getElementById('task').value;
+
+        let  tasks;
+
+        if(localStorage.getItem('tasks') === null) {
+            tasks = [];
+        } else {
+            tasks = JSON.parse(localStorage.getItem('tasks'));
+        }
+
+        tasks.push(task);
+
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        alert('Task saved');
+
+        e.preventDefault();
+});
+
+debugger;
+
+const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+tasks.forEach(function(task){
+    console.log(task);
+})
