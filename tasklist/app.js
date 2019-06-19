@@ -5,10 +5,10 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
-// Load all event listeners
+// // Load all event listeners
 loadEventListeners();
 
-// Load all event listeners
+// // Load all event listeners
 function loadEventListeners(){
     // DOM Load event
     document.addEventListener('DOMContentLoaded', getTasks);
@@ -23,7 +23,7 @@ function loadEventListeners(){
 }
 
 
-// Get Tasks from LS
+// // Get Tasks from LS
 function getTasks() {
     let tasks;
     if(localStorage.getItem('tasks' === null)){
@@ -82,7 +82,7 @@ function addTask(e) {
 
     // Clear input
     taskInput.value = '';
-    
+
     e.preventDefault();
 }
 
@@ -148,6 +148,10 @@ function clearTasks() {
 // Clear Tasks from LS
 function clearTasksFromLocalStorage() {
     localStorage.clear();
+
+    // or I could do this my solution
+    // let tasks = [];
+    // localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function filterTasks(e) {
