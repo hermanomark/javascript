@@ -18,20 +18,23 @@ UI.prototype.addBookToList = function(book) {
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
-        <td><a href="#" class="delete">X</a></td>`;
+        <td><a href="#" class="delete">X</a></td>
+    `;
 
     list.appendChild(row);
 }
 
+// Show Alert
 UI.prototype.showAlert = function(message, className) {
-    // Create div
-    const div = document.createElement('div');
+    // Create element
+    const div = document.createElement('div')
     // Add classes
     div.className = `alert ${className}`;
     // Add text
     div.appendChild(document.createTextNode(message));
     // Get parent
     const container = document.querySelector('.container');
+    // Get form
     const form = document.querySelector('#book-form');
     // Insert alert
     container.insertBefore(div, form);
@@ -42,19 +45,18 @@ UI.prototype.showAlert = function(message, className) {
     }, 3000);
 }
 
-UI.prototype.clearFields = function() {
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
-    document.getElementById('isbn').value = '';
-}
-
-// Delete book
+// Delete Book
 UI.prototype.deleteBook = function(target) {
     if(target.className === 'delete') {
-        if (confirm('Are you sure?')) {
-            target.parentElement.parentElement.remove();
-        }
+        target.parentElement.parentElement.remove();
     }
+}
+
+// Clear Fields
+UI.prototype.clearFields = function() {
+    document.getElementById('title').value = '',
+    document.getElementById('author').value = '',
+    document.getElementById('isbn').value = '';
 }
 
 // Local storage function
@@ -106,29 +108,27 @@ Store.removeBook = function(isbn) {
 document.addEventListener('DOMContentLoaded', Store.displayBooks);
 
 // Event Listener for add book
-document.getElementById('book-form').addEventListener('submit', function(e) {
-    // Get forms values    
+document.getElementById('book-form').addEventListener('submit', function(e){
+    // Get form values
     const title = document.getElementById('title').value,
-          author = document.getElementById('author').value,
-          isbn = document.getElementById('isbn').value
-
-    // Instantuate a book
+    author = document.getElementById('author').value,
+    isbn = document.getElementById('isbn').value;
+    
+    // Instatiate book
     const book = new Book(title, author, isbn);
 
-    // Instantiate UI
+    // Instatiate UI
     const ui = new UI();
-
-    console.log(ui);
 
     // Validate
     if (title === '' || author === '' || isbn === '') {
         // Error alert
-        ui.showAlert('Please fill all fields', 'error');
+        ui.showAlert('Please fill in all fields', 'error');
     } else {
         // Add book to list
         ui.addBookToList(book);
-
-        // Add book to LS
+        
+        // Add to LS
         Store.addBook(book);
 
         // Show success
@@ -143,17 +143,17 @@ document.getElementById('book-form').addEventListener('submit', function(e) {
 
 // Event Listener for delete
 document.getElementById('book-list').addEventListener('click', function(e) {
-
-    // Instantiate UI
+    // Instatiate UI
     const ui = new UI();
-
+    
+    // Delete book
     ui.deleteBook(e.target);
 
-    // Delete book from LS
+    // Remove from LS
     Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
     // Show message
-    ui.showAlert('Book Removed!', 'success');
+    ui.showAlert('Book Removed', 'success');
 
     e.preventDefault();
 });
