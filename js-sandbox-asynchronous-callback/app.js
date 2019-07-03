@@ -1,14 +1,14 @@
 // Callback functions
 const posts = [
-    {title: 'Post One', body: 'This is post one'},
-    {title: 'Post Two', body: 'This is post two'},
-    {title: 'Post Three', body: 'This is post three'}
+    {title: "Post One", body: "This is Post One"},
+    {title: "Post Two", body: "This is Post Two"},
 ];
 
+
 // function createPost(post) {
-//     setTimeout(function() {
+//     setTimeout(function(){
 //         posts.push(post);
-//     }, 2000)
+//     }, 2000);
 // }
 
 // function getPosts() {
@@ -21,7 +21,7 @@ const posts = [
 //     }, 1000);
 // }
 
-// createPost({title: 'Post Four', body: 'This is post four'});
+// createPost({title: 'Post Three', body: 'This is post Three'});
 
 // getPosts();
 
@@ -29,7 +29,7 @@ function createPost(post, callback) {
     setTimeout(function() {
         posts.push(post);
         callback();
-    }, 2000)
+    }, 2000);
 }
 
 function getPosts() {
@@ -42,6 +42,6 @@ function getPosts() {
     }, 1000);
 }
 
-createPost({title: 'Post Four', body: 'This is post four'}, getPosts);
+createPost({title: 'Post Three', body: 'This is post Three'}, getPosts);
 
 // Callbacks are functions that can be pass in to another function, then called within that function

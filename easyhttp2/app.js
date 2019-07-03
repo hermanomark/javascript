@@ -1,6 +1,5 @@
-// https://jsonplaceholder.typicode.com/
-
-const http = new EasyHTTP;
+// https://jsonplaceholder.typicode.com/users
+const http = new EasyHTTP();
 
 // Get Users
 // http.get('https://jsonplaceholder.typicode.com/users')
@@ -9,15 +8,15 @@ const http = new EasyHTTP;
 
 // User Data
 const data = {
-  name: 'John Doe',
-  username: 'johndoe',
-  email: 'jdoe@gmail.com'
+    name: 'John Doe',
+    username: 'johndoe',
+    email: 'jdoe@gmail.com'
 }
 
-// Create Users
+// Create User
 // http.post('https://jsonplaceholder.typicode.com/users', data)
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err));
 
 // Update User
 // http.put('https://jsonplaceholder.typicode.com/users/2', data)
@@ -25,7 +24,6 @@ const data = {
 //   .catch(err => console.log(err));
 
 // Delete User
-http.delete('https://jsonplaceholder.typicode.com/users/2')
+http.delete('https://jsonplaceholder.typicode.com/users/4')
     .then(data => console.log(data))
     .catch(err => console.log(err));
-

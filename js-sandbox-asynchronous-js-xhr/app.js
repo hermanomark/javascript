@@ -1,14 +1,14 @@
-// XHR Object Methods  Working With Text
+// XHR Object Methods Working With Text
 
 document.getElementById('button').addEventListener('click', loadData);
 
 function loadData() {
-	// Create an XHR Object
-	const xhr = new XMLHttpRequest();
+    // Create an XHR Object
+    const xhr = new XMLHttpRequest();
 
-	// OPEN
+    // OPEN
     xhr.open('GET', 'data.txt', true);
-    
+
     console.log('READYSTATE', xhr.readyState);
 
     // Optional - Used for spinners/loaders
@@ -16,8 +16,8 @@ function loadData() {
         console.log('READYSTATE', xhr.readyState);
     }
 
-    // newer syntax, suggested to use this one
-	xhr.onload = function() {
+    // Newer syntax - suggested to use this one
+    xhr.onload = function() {
         console.log('READYSTATE', xhr.readyState);
         if(this.status === 200) {
             // console.log(this.responseText);
@@ -25,7 +25,7 @@ function loadData() {
         }
     }
 
-    // older syntax
+    // Older syntax
     // xhr.onreadystatechange = function() {
     //     console.log('READYSTATE', xhr.readyState);
     //     if(this.status === 200 && this.readyState === 4) {
@@ -36,7 +36,7 @@ function loadData() {
     xhr.onerror = function() {
         console.log('Request error...');
     }
-    
+
     xhr.send();
 
     // readyState Values
@@ -47,7 +47,7 @@ function loadData() {
     // 4: request finished and response is ready
 
     // HTTP Statuses
-    // 200: "OK"
-    // 403: "Forbidden"
-    // 404: "Not Found"
+    // 200: OK
+    // 403: Forbidden
+    // 404: Not found
 }

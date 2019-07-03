@@ -12,19 +12,19 @@ function getText() {
             console.log(data);
             document.getElementById('output').innerHTML = data;
         })
-        .catch(err =>console.log(err));
+        .catch(err => console.log(err));
 }
 
 // Get local json data
 function getJson() {
-    fetch('post.json')
+    fetch('posts.json')
         .then(res => res.json())
         .then(data => {
             console.log(data);
             let output = '';
-            data.forEach(function(post){
+            data.forEach(function(post) {
                 output += `<li>${post.title}</li>`;
-            });
+            })
             document.getElementById('output').innerHTML = output;
         })
         .catch(err => console.log(err));
@@ -38,9 +38,9 @@ function getExternal() {
         .then(data => {
             console.log(data);
             let output = '';
-            data.forEach(function(user){
+            data.forEach(function(user) {
                 output += `<li>${user.login}</li>`;
-            });
+            })
             document.getElementById('output').innerHTML = output;
         })
         .catch(err => console.log(err));

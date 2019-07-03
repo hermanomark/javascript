@@ -18,15 +18,15 @@
 // }
 
 // Return object
-// const sayHello = () => ({msg : 'Hello'});
+// const sayHello = () => ({ msg: 'Hello' })
 
-// Single param does not need paranthesis
+// Single param does not need parenthesis
 // const sayHello = name => console.log(`Hello ${name}`);
 
-// Multiple params need paranthesis
+// Multiple params need parenthesis
 // const sayHello = (firstName, lastName) => console.log(`Hello ${firstName} ${lastName}`);
 
-// sayHello('John', 'Doe');
+// sayHello('Mark', 'Hermano');
 
 const users = ['Nathan', 'John', 'William'];
 

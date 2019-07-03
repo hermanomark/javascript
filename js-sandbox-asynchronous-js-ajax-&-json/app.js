@@ -9,18 +9,19 @@ function loadCustomer(e) {
 
     xhr.onload = function() {
         if(this.status === 200) {
-            // console.log(this.responseText);
-
+            // console.log(this.responseText)
+            
             const customer = JSON.parse(this.responseText);
 
             const output = `
                 <ul>
-                    <li>ID: ${customer.id}</li>
-                    <li>Name: ${customer.name}</li>
-                    <li>Company: ${customer.company}</li>
-                    <li>Phone: ${customer.phone}</li>
-                </ul>`;
-            
+                    <li>${customer.id}</li>
+                    <li>${customer.name}</li>
+                    <li>${customer.company}</li>
+                    <li>${customer.phone}</li>
+                </ul>
+            `;
+
             document.getElementById('customer').innerHTML = output;
         }
     }
@@ -42,16 +43,17 @@ function loadCustomers(e) {
 
             let output = '';
 
-            customers.forEach(function(customer){
+            customers.forEach(function(customer) {
                 output += `
                     <ul>
-                        <li>ID: ${customer.id}</li>
-                        <li>Name: ${customer.name}</li>
-                        <li>Company: ${customer.company}</li>
-                        <li>Phone: ${customer.phone}</li>
-                    </ul>`;
+                        <li>${customer.id}</li>
+                        <li>${customer.name}</li>
+                        <li>${customer.company}</li>
+                        <li>${customer.phone}</li>
+                    </ul>
+                `;
             });
-            
+
             document.getElementById('customers').innerHTML = output;
         }
     }
