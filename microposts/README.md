@@ -39,3 +39,28 @@ Brad Traversy
 ### License
 
 This project is licensed under the MIT License
+
+### Troubleshooting
+
+if above usage failed, try running
+
+```sh
+$ npx babel-upgrade --write
+$ npm install
+```
+
+then removed '@babel/preset-stage-0' from webpack.config.js
+
+All thanks to <a href="https://github.com/bradtraversy/babel_webpack_starter/issues/6">this</a>.
+
+### Production
+
+After running
+
+```sh
+$ npm run build
+```
+
+You can now upload the index.html, build file and assets to your server/client side.
+And don't include the other files.
+As for the api it is made from the backend (usually built with nodejs, ruby, etc.).
