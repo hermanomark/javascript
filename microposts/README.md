@@ -40,6 +40,8 @@ Brad Traversy
 
 This project is licensed under the MIT License
 
+## Additional information by me :)
+
 ### Troubleshooting
 
 if above usage failed, try running
