@@ -1,0 +1,36 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "admissionNo": 45412231231,
+      "admissionDate": "2012-04-23",
+      "hospitalNo": 8889991
+    },
+    {
+      "id": 2,
+      "firstName": "Steve",
+      "lastName": "Rodgers",
+      "admissionNo": 21313899,
+      "admissionDate": "2019-09-01",
+      "hospitalNo": 3423427
+    },
+    {
+      "id": 3,
+      "firstName": "Sara",
+      "lastName": "Collins",
+      "admissionNo": 92131832,
+      "admissionDate": "2017-02-08",
+      "hospitalNo": 213177545
+    },
+    {
+      "admissionNo": "23312231",
+      "firstName": "Jayson",
+      "lastName": "William",
+      "admissionDate": "2019-07-12",
+      "hospitalNo": "2131315",
+      "id": 4
+    }
+  ]
+}

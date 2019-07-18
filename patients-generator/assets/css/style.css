@@ -1,0 +1,11 @@
+.delete:hover {
+    color: red;
+}
+
+.edit:hover {
+    color: orange;
+}
+
+.add-form {
+    display: none;
+}
