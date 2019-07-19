@@ -1,10 +1,14 @@
 class UI {
     constructor() {
-        this.admissionNo = document.querySelector('#admission-no');
-        this.firstName = document.querySelector('#first-name');
-        this.lastName = document.querySelector('#last-name');
-        this.admissionDate = document.querySelector('#admission-date');
-        this.hospitalNo = document.querySelector('#hospital-no');
+        this.idInput = document.querySelector('#id');
+        this.admissionNoInput = document.querySelector('#admission-no');
+        this.firstNameInput = document.querySelector('#first-name');
+        this.lastNameInput = document.querySelector('#last-name');
+        this.admissionDateInput = document.querySelector('#admission-date');
+        this.hospitalNoInput = document.querySelector('#hospital-no');
+        this.btnPatientSubmit = document.querySelector('.add-patient-submit');
+        this.heading = document.querySelector('.heading');
+        this.lead = document.querySelector('.lead');
     }
 
     showPatients(patients) {
@@ -68,11 +72,11 @@ class UI {
     }
 
     clearFields() {
-        this.admissionNo.value = '';
-        this.firstName.value = '';
-        this.lastName.value = '';
-        this.admissionDate.value = '';
-        this.hospitalNo.value = '';
+        this.admissionNoInput.value = '';
+        this.firstNameInput.value = '';
+        this.lastNameInput.value = '';
+        this.admissionDateInput.value = '';
+        this.hospitalNoInput.value = '';
     }
 
     clearAlert() {
@@ -80,6 +84,47 @@ class UI {
 
         if (currentAlert) {
             currentAlert.remove();
+        }
+    }
+
+    fillForm(data) {
+        this.idInput.value = data.id;
+        this.admissionNoInput.value = data.admissionNo;
+        this.firstNameInput.value = data.firstName;
+        this.lastNameInput.value = data.lastName;
+        this.admissionDateInput.value = data.admissionDate;
+        this.hospitalNoInput.value = data.hospitalNo;
+
+        this.changeFormState('edit');
+    }
+
+    clearIdInput() {
+        this.idInput.value = '';
+    }
+
+    changeFormState(type) {
+        if (type === 'edit') {
+            this.heading.textContent = 'Edit patient';
+            this.lead.textContent = 'Fill out this form to edit patient';
+            this.btnPatientSubmit.className = 'add-patient-submit btn btn-warning btn-block';
+
+            const button = document.createElement('button');
+            button.className = 'patient-cancel btn btn-light btn-block mt-2';
+            button.appendChild(document.createTextNode('Cancel Edit'));
+
+            const cardForm = document.querySelector('.card-form');
+            const formEnd = document.querySelector('.form-end');
+            cardForm.insertBefore(button, formEnd);
+        } else {
+            this.heading.textContent = 'Add New Patient';
+            this.lead.textContent = 'Fill out this form to add new patient';
+            this.btnPatientSubmit.textContent = 'Submit';
+            this.btnPatientSubmit.className = 'add-patient-submit btn btn-primary btn-block';
+            if (document.querySelector('.patient-cancel')) {
+                document.querySelector('.patient-cancel').remove();
+            }
+            this.clearIdInput();
+            this.clearFields();
         }
     }
 }
