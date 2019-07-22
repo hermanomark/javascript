@@ -6,12 +6,17 @@ class UI {
         this.lastNameInput = document.querySelector('#last-name');
         this.admissionDateInput = document.querySelector('#admission-date');
         this.hospitalNoInput = document.querySelector('#hospital-no');
-        this.btnPatientSubmit = document.querySelector('.add-patient-submit');
+        this.btnPatientSubmit = document.querySelector('.submit-patient');
         this.heading = document.querySelector('.heading');
         this.lead = document.querySelector('.lead');
+        this.patientForm = document.querySelector('.form-patient');
+        this.searchBar = document.querySelector('#search-user');
+        this.patientsList = document.querySelector('.patients-list');
     }
 
     showPatients(patients) {
+        this.changePageState('home');
+
         let patientItem = '';
 
         patients.forEach((patient) => {
@@ -55,10 +60,11 @@ class UI {
             </table>
         `;
 
-        return output;
+        document.querySelector('.patients-list').innerHTML = output;
     }
 
     showAlert(message, className) {
+        this.clearAlert();
         const div = document.createElement('div');
         div.textContent = message;
         div.className = className;
@@ -95,36 +101,53 @@ class UI {
         this.admissionDateInput.value = data.admissionDate;
         this.hospitalNoInput.value = data.hospitalNo;
 
-        this.changeFormState('edit');
+        this.changePageState('edit');
     }
 
     clearIdInput() {
         this.idInput.value = '';
     }
 
-    changeFormState(type) {
-        if (type === 'edit') {
-            this.heading.textContent = 'Edit patient';
-            this.lead.textContent = 'Fill out this form to edit patient';
-            this.btnPatientSubmit.className = 'add-patient-submit btn btn-warning btn-block';
-
-            const button = document.createElement('button');
-            button.className = 'patient-cancel btn btn-light btn-block mt-2';
-            button.appendChild(document.createTextNode('Cancel Edit'));
-
-            const cardForm = document.querySelector('.card-form');
-            const formEnd = document.querySelector('.form-end');
-            cardForm.insertBefore(button, formEnd);
-        } else {
-            this.heading.textContent = 'Add New Patient';
-            this.lead.textContent = 'Fill out this form to add new patient';
-            this.btnPatientSubmit.textContent = 'Submit';
-            this.btnPatientSubmit.className = 'add-patient-submit btn btn-primary btn-block';
-            if (document.querySelector('.patient-cancel')) {
-                document.querySelector('.patient-cancel').remove();
-            }
-            this.clearIdInput();
-            this.clearFields();
+    changePageState(type) {
+        switch(type) {
+            case 'add':
+                this.patientForm.style.display = "block";
+                this.searchBar.style.display = "none";
+                this.patientsList.innerHTML = '';
+                this.heading.textContent = 'Add New Patient';
+                this.lead.textContent = 'Fill out this form to add new patient';
+                this.btnPatientSubmit.textContent = 'Submit';
+                this.btnPatientSubmit.className = 'submit-patient btn btn-primary btn-block';
+                if (document.querySelector('.patient-cancel')) {
+                    document.querySelector('.patient-cancel').remove();
+                }
+                this.clearIdInput();
+                this.clearFields();
+                break;
+            case 'edit':
+                this.patientForm.style.display = "block";
+                this.searchBar.style.display = "none";
+                this.patientsList.innerHTML = '';
+                this.heading.textContent = 'Edit Patient';
+                this.lead.textContent = 'Fill out this form to edit patient';
+                this.btnPatientSubmit.className = 'submit-patient btn btn-warning btn-block';
+    
+                const button = document.createElement('button');
+                button.className = 'patient-cancel btn btn-light btn-block mt-2';
+                button.appendChild(document.createTextNode('Cancel Edit'));
+    
+                const cardForm = document.querySelector('.card-form');
+                const formEnd = document.querySelector('.form-end');
+                cardForm.insertBefore(button, formEnd);
+                break;
+            default:
+                this.searchBar.style.display =  "block";
+                this.heading.textContent = 'Patients List';
+                this.patientForm.style.display = "none";
+                if (document.querySelector('.patient-cancel')) {
+                    document.querySelector('.patient-cancel').remove();
+                }
+                break;
         }
     }
 }

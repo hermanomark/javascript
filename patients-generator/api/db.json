@@ -1,20 +1,20 @@
 {
   "patients": [
     {
-      "id": 1,
+      "admissionNo": "45412231231",
       "firstName": "John",
       "lastName": "Doe",
-      "admissionNo": 45412231231,
       "admissionDate": "2012-04-23",
-      "hospitalNo": 8889991
+      "hospitalNo": "8889991",
+      "id": 1
     },
     {
-      "id": 2,
+      "admissionNo": "21313899",
       "firstName": "Steve",
       "lastName": "Rodgers",
-      "admissionNo": 21313899,
       "admissionDate": "2019-09-01",
-      "hospitalNo": 3423427
+      "hospitalNo": "3423427",
+      "id": 2
     },
     {
       "admissionNo": "92131832",
@@ -23,6 +23,46 @@
       "admissionDate": "2017-02-08",
       "hospitalNo": "122123123",
       "id": 3
+    },
+    {
+      "admissionNo": "test edit",
+      "firstName": "edit",
+      "lastName": "edit",
+      "admissionDate": "2019-12-12",
+      "hospitalNo": "211 edit",
+      "id": 4
+    },
+    {
+      "admissionNo": "test",
+      "firstName": "test",
+      "lastName": "test",
+      "admissionDate": "2019-08-08",
+      "hospitalNo": "test",
+      "id": 12
+    },
+    {
+      "admissionNo": "21321",
+      "firstName": "Gelo",
+      "lastName": "Maniscan",
+      "admissionDate": "2131-12-21",
+      "hospitalNo": "12331",
+      "id": 13
+    },
+    {
+      "admissionNo": "8605659046",
+      "firstName": "Regina",
+      "lastName": "Spektor",
+      "admissionDate": "2018-12-31",
+      "hospitalNo": "1214323432",
+      "id": 14
+    },
+    {
+      "admissionNo": "23131 edit",
+      "firstName": "dsada edit",
+      "lastName": "dadas",
+      "admissionDate": "12112-12-12",
+      "hospitalNo": "321321231",
+      "id": 15
     }
   ]
 }

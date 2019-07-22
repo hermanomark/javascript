@@ -1,33 +1,50 @@
 import { http } from './http';
-import { page } from './page';
 import { ui } from './ui';
 
 document.addEventListener('DOMContentLoaded', homePage);
 document.getElementById('home').addEventListener('click', homePage);
 document.getElementById('submit-patient-page').addEventListener('click', addPage);
-document.querySelector('.add-patient-submit').addEventListener('click', submitPatient);
+document.getElementById('search-user').addEventListener('keyup', searchPatients);
+document.querySelector('.submit-patient').addEventListener('click', submitPatient);
 document.querySelector('.patients-list').addEventListener('click', deletePatient);
 document.querySelector('.patients-list').addEventListener('click', enableEdit);
-document.querySelector('.add-form').addEventListener('click', cancelEdit);
+document.querySelector('.form-patient').addEventListener('click', cancelEdit);
 
 function homePage(e) {
     getPatients();
-    ui.changeFormState('home');
     
     e.preventDefault();
 }
 
 function getPatients() {
     http.get('http://localhost:3000/patients')
-    .then(data => page.homeState(data))
+    .then(data => ui.showPatients(data))
     .catch(err => console.log(err));
 }
 
 function addPage(e) {
-    page.submitState();
-    ui.changeFormState('add');
+    ui.changePageState('add');
 
     e.preventDefault();
+}
+
+function searchPatients(e) {
+    const admissionNo = e.target.value;
+
+    if (admissionNo !== '') {
+        http.get(`http://localhost:3000/patients?q=${admissionNo}`)
+            .then(data => {
+                console.log(data);
+                if (data.length === 0 || data === undefined) {
+                    ui.showAlert('Patient not found', 'alert alert-danger');
+                } else {
+                    ui.showPatients(data);
+                }
+            })
+            .catch(err => console.log(err));
+    } else {
+        getPatients();
+    }
 }
 
 function submitPatient() {
@@ -46,22 +63,26 @@ function submitPatient() {
         hospitalNo
     }
     
-    if (id === '') {
-        http.post('http://localhost:3000/patients', data)
-            .then(data => {
-                ui.clearFields();
-                getPatients();
-                ui.showAlert('Added patient', 'alert alert-success');
-            })
-            .catch(err => console.log(err));
+    if (admissionNo === '' || firstName === '' || lastName === '' || admissionDate === '' || hospitalNo === '') {
+        ui.showAlert('Please fill in all fields', 'alert alert-danger');
     } else {
-        http.put(`http://localhost:3000/patients/${id}`, data)
-            .then(data => {
-                ui.showAlert('Patient Updated', 'alert alert-success');
-                ui.changeFormState('add');
-                getPatients();
-            })
-            .catch(err => console.log(err));
+        if (id === '') {
+            http.post('http://localhost:3000/patients', data)
+                .then(data => {
+                    getPatients();
+                    ui.clearFields();
+                    ui.showAlert('Added patient', 'alert alert-success');
+                })
+                .catch(err => console.log(err));
+        } else {
+            http.put(`http://localhost:3000/patients/${id}`, data)
+                .then(data => {
+                    ui.changePageState('add');
+                    getPatients();
+                    ui.showAlert('Patient Updated', 'alert alert-success');
+                })
+                .catch(err => console.log(err));
+        }
     }
 }
 
@@ -99,8 +120,7 @@ function enableEdit(e) {
             hospitalNo
         }
 
-        page.submitState();
-        ui.fillForm(data);   
+        ui.fillForm(data);
     }
 
     e.preventDefault(e);
@@ -108,7 +128,7 @@ function enableEdit(e) {
 
 function cancelEdit(e) {
     if (e.target.classList.contains('patient-cancel')) {
-        ui.changeFormState('add');
+        ui.changePageState('add');
         getPatients();
     }
 
