@@ -1,5 +1,9 @@
 class UI {
     constructor() {
+        this.paginationNav =  document.querySelector('.pagination-navigation');
+        this.currectActivePage = document.querySelector('.current-active-page');
+        this.totalPatientsLabel = document.querySelector('.total-patients-container');
+        this.totalPatients = document.querySelector('#total-patients');
         this.idInput = document.querySelector('#id');
         this.admissionNoInput = document.querySelector('#admission-no');
         this.firstNameInput = document.querySelector('#first-name');
@@ -12,6 +16,29 @@ class UI {
         this.patientForm = document.querySelector('.form-patient');
         this.searchBar = document.querySelector('#search-user');
         this.patientsList = document.querySelector('.patients-list');
+    }
+
+    showTotalPatients(patients) {
+        this.totalPatientsLabel.style.display = 'block';
+        this.totalPatients.textContent = patients.length;
+    }
+
+    showPaginationDropdown(patients, page, limit) {
+        this.paginationNav.style.display = 'block';
+        this.currectActivePage.textContent = `${page} `;
+        const totalPages = Math.ceil(patients.length / limit);
+
+        let output = '';
+
+        for(let i = 1; i <= totalPages; i++) {
+           output += `<a class="dropdown-item current" href="#">${i}</a>`;
+        }
+
+        document.querySelector('.dropdown-menu').innerHTML = output;
+    }
+
+    removePagination() {
+        document.querySelector('.pagination-navigation').style.display = 'none';
     }
 
     showPatients(patients) {
@@ -68,7 +95,7 @@ class UI {
         const div = document.createElement('div');
         div.textContent = message;
         div.className = className;
-        const container = document.querySelector('.contentContainer');
+        const container = document.querySelector('.content-container');
         const heading = document.querySelector('.heading');
         container.insertBefore(div, heading);
 
@@ -111,8 +138,11 @@ class UI {
     changePageState(type) {
         switch(type) {
             case 'add':
-                this.patientForm.style.display = "block";
-                this.searchBar.style.display = "none";
+                this.paginationNav.style.display = 'none';
+                this.totalPatientsLabel.style.display = 'none';
+                this.patientForm.style.display = 'block';
+                this.searchBar.style.display = 'none';
+                this.searchBar.value = '';
                 this.patientsList.innerHTML = '';
                 this.heading.textContent = 'Add New Patient';
                 this.lead.textContent = 'Fill out this form to add new patient';
@@ -125,8 +155,11 @@ class UI {
                 this.clearFields();
                 break;
             case 'edit':
-                this.patientForm.style.display = "block";
-                this.searchBar.style.display = "none";
+                this.paginationNav.style.display = 'none';
+                this.totalPatientsLabel.style.display = 'none';
+                this.patientForm.style.display = 'block';
+                this.searchBar.style.display = 'none';
+                this.searchBar.value = '';
                 this.patientsList.innerHTML = '';
                 this.heading.textContent = 'Edit Patient';
                 this.lead.textContent = 'Fill out this form to edit patient';

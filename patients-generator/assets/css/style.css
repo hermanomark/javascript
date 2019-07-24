@@ -9,3 +9,8 @@
 .add-form {
     display: none;
 }
+
+.btn-custom {
+    height: 34px !important;
+    border-radius: 0 !important;
+}
