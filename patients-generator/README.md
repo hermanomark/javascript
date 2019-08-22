@@ -1,41 +1,40 @@
-# Babel Webpack Starter
+# Patients Generator
 
-A starter pack to build JavaScript applications using standards from ES2015, ES2016 & ES2017. It uses webpack, Babel and webpack-dev-server to compile and serve. It is fully compatible with Async/Await as it uses the Babel polyfill.
+Generate patients record on the fly!
 
-### Version
-1.1.0
+# What I Learned
+* DOM manipulation events using only vanilla javascript.
+* Setup Babel Webpack Environment.
+* Used custom HTTP library with Async and Await.
+* Create a fake REST API using JSON Server.
+* Display, add, edit, delete patients.
 
-## Usage
-
-### Installation
-
-Install the dependencies
-
-```sh
+# Usage
+```
 $ npm install
-```
 
-### Serve
-To serve in the browser  - Runs webpack-dev-server
+# Run fake api
+$ npm run json:server
 
-```sh
 $ npm start
-```
 
-### Build
-Compile and build
-
-```sh
+# Compile to production
 $ npm run build
 ```
 
-## More Info
+# Troubleshooting
+If usage failed try running.
+```
+$ npx babel-upgrade --write
+$ npm install
 
-### Author
+# Run fake api
+$ npm run json:server
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### License
-
-This project is licensed under the MIT License
+$ npm start
+```
+Removed '@babel/preset-stage-0' from webpack.config.js.
+```
+# Compile to production
+$ npm run build
+```
